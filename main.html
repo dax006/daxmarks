@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+
+
+</head>
+<span style="text-size:small">Daxmarks </span> <span id="version"></span>
+	<h1>  
+		Manual Operation
+	</h1>
+
+<button id="save_overwritebutton" title="Copy your current browser bookmarks into the cloud.">store and overwrite</button>
+<button id="load_mergebutton" title = "Copy all bookmarks from the cloud into your current browser, merging them.">load and merge</button>
+<button id="save_mergebutton" title="Copy all bookmarks on your current browser into the cloud, merging them.">store and merge</button>
+<button id="load_overwritebutton" title="Copy the bookmarks from the cloud into your browser.">load and overwrite</button>
+
+
+<!--script>runtime.reload();</script> <!--https://stackoverflow.com/questions/2963260/how-do-i-auto-reload-a-chrome-extension-im-developing-->
+<!--script src="jquery-3.3.1.min.js"></script-->
+<!--script src="functions.js"></script-->
+
+<!--script src="storejson.js"></script-->
+
+<div id="operationResults" style="display:none;">  <!-- start hidden until needed -->
+	<h3>Operation Results</h3>
+	Local before: <span id="localBefore"> </span><br>
+	Server before: <span id="serverBefore"> </span><br>
+	Local after: <span id="localAfter"> </span><br>
+	Server after: <span id="serverAfter"> </span><br>
+	Successes: <span id="successes"> </span><br>
+	Failures: <span id="failures"> </span><br>
+	Duplicates: <span id="duplicates"> </span><br>
+	Skipped: <span id="skipped"> </span><br>
+	Deleted: <span id="deleted"> </span><br>
+	Moved: <span id="moved"> </span><br>
+</div>
+
+  <div  style="text-align: right;">
+    <p><a href="#" id = "logout">logout</a></p>
+  </div>
+
+
+
+<script src="main.js"></script>
+
+
+</html>

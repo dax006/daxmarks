@@ -1,0 +1,21 @@
+{
+	"manifest_version": 2,
+	"name": "Daxmarks",
+	"version": "0.94.0",
+	"description": "Sync your bookmarks between Firefox and Chrome",
+	"browser_action":{
+		"default_popup": "login.html"
+	}
+
+	,"icons": {
+    "48": "icons/icon_48_on.png",
+    "96": "icons/icon_96_on.png"
+    
+  }
+	
+	,"permissions": ["management",  "bookmarks", "storage", "webRequest", "webRequestBlocking"	]
+
+	,"background": {
+    "scripts": ["bookmarkFunctions.js", "functions.js", "background.js"]
+  }
+}

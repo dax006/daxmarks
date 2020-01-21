@@ -1,0 +1,43 @@
+{
+	"manifest_version": 2,
+	"name": "Daxmarks beta",
+	"version": "0.9.14",
+	"description": "Sync your bookmarks between Firefox and Chrome"
+	
+	,"browser_action":{
+		"default_popup": "login.html"
+		,"default_icon":{
+	    "48": "icons/star-icon_48_off-48.png",
+	    "96": "icons/star-icon_96_off-96.png"
+		}
+	}
+
+	,"icons": {
+    "48": "icons/icon_48_off1.png",
+    "96": "icons/icon_96_off1.png"
+    
+  }
+	
+	,"permissions": ["management",  "bookmarks", "storage", "webRequest", "webRequestBlocking","http://*/"	]
+
+	,"background": {
+    //"scripts": ["jquery-3.3.1.min.js","finished.js", "functions.js","array_buffer_to_data.js", "background.js"]
+    "scripts": ["jquery-3.3.1.min.js","bookmarkFunctions.js", "functions.js", "background.js"]
+    
+  }
+
+//   ,"content_scripts": [{
+//     "matches": [
+//          "<all_urls>"
+//     ],
+//     "js": ["jquery-3.3.1.min.js","functions.js"]
+// }]
+
+	,"applications": {
+	  "gecko": {
+	    "id": "addon@daxmarks.com"
+	  }
+	}
+
+
+}

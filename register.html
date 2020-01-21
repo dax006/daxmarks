@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<!--script src="jquery-3.3.1.min.js"></script-->
+<script src="sha3.js"></script>
+
+</head>
+<body>
+    <form name = "registerForm" id="registerForm" width="500px" height="300px">
+    	<h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required/>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password"  required/>
+
+        <input type="hidden" name="command" value="register"/>
+
+        <p>By creating an account you agree to our <a href="terms_privacy.html">Terms & Privacy</a>.</p>
+        <button type="submit" >Register</button>
+        <!--button type="button" onclick = "submitForm(this);">Manual button</button-->
+    </form>
+    <br>
+    <h2><span id="status"> </span></h2>
+</body>
+<script src="register.js"></script>
+</html>
