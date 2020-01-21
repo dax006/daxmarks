@@ -1,0 +1,25 @@
+{
+	"manifest_version": 2,
+	"name": "Daxmarks 2",
+	"version": "2.0",
+	"description": "Sync your bookmarks between Firefox, Chrome (and possibly Edge)",
+	"browser_action":{
+		"default_popup": "optIn/opt-in.html"
+			//"default_popup": "main.html"
+	}
+
+	,"icons": {
+    "48": "icons/icon_48_off.png",
+    "96": "icons/icon_96_off.png"
+    
+  }
+	
+	,"permissions": ["bookmarks", "storage"]
+
+	,"background": {
+    "scripts": ["testing.js", "functions.js", "background.js"],
+    "persistent": true  //i think this means dont go to sleep - i don't see any difference
+  }
+
+
+}

@@ -1,0 +1,14 @@
+html, body {
+
+  min-width:700px;
+  padding-left:.5em;
+  padding-right:.5em;
+}
+
+strong {
+  color: red;
+}
+
+button {
+  margin: 0.2em 0.2em 0.5em 0;
+}
