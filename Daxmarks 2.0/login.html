@@ -52,6 +52,20 @@ body{
 
 <!-- <button id="clearall" title = "Clear internal data like if you accepted the opt-in">Clear settings</button> really messes with the database ClientID fields -->
 
+<div id="operationResults" style="display:none;">  <!-- start hidden until needed -->
+  <h3>Results</h3>
+  
+  Existed: <span id="existed"> </span><br>
+  Added: <span id="added"> </span><br>
+  Deleted: <span id="deleted"> </span><br>
+  Moved: <span id="moved"> </span><br>
+  Renamed: <span id="renamed"> </span><br>
+  Skipped: <span id="skipped" title="A later operation overwrote this operation, so we skip it."> </span><br>
+  Failed: <span id="failed"> </span><br>
+  
+
+
+</div>
   
 <script src="login.js"></script>
 </body>

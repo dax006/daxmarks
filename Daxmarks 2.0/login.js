@@ -16,9 +16,27 @@ function handleMessage(request, sender, sendResponse) {
       break;
     case "changeHref":
       window.location.href=request.href;
-  }
+      break;
+    case "showOperationResults":
+        showOperationResults(request.message);
+        break;
+    }
 }
 
+function showOperationResults(results) {
+    console.log("main.js showOperationResults()");
+    results = JSON.parse(results);
+    document.getElementById("operationResults").style.display = "block"; //make it visible
+    document.getElementById("existed").textContent = results.existed;
+    
+    document.getElementById("added").textContent = results.added;
+    document.getElementById("deleted").textContent = results.deleted;
+    document.getElementById("moved").textContent = results.moved;
+    document.getElementById("renamed").textContent = results.renamed;
+    document.getElementById("skipped").textContent = results.skipped;
+    document.getElementById("failed").textContent = results.failed;
+    //+_added+" added, " +_deleted+ " deleted, " +_moved + " moved, " +_renamed + " renamed, " + _failed + " failed, " +_existed+ " already existed.");
+}
 //https://stackoverflow.com/questions/18592679/xmlhttprequest-to-post-html-form
 function submitForm(evt){
   evt.preventDefault();  //don't call the stuff in the 'action', I need to encrypt it
@@ -71,9 +89,9 @@ chrome.runtime.onMessage.addListener(handleMessage);
 //fill in loginform with cached values
 document.getElementById("loginEmail").value = "";  //set default
 document.getElementById("loginPass").value = "";
-chrome.storage.sync.get(['email'], function(email) {  //sometimes this returns an object, sometimes a string?
+chrome.storage.local.get(['email'], function(email) {  //sometimes this returns an object, sometimes a string?
   if(!email || email.email == undefined || email.email == "undefined") return; 
-  chrome.storage.sync.get(['password'], function(password) {
+  chrome.storage.local.get(['password'], function(password) {
     console.log("setting loginEmailto "+email.email)
     document.getElementById("loginEmail").value = email.email;
     // document.getElementById("loginPass").value = password.password;

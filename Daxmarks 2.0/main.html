@@ -8,9 +8,12 @@ body{
   min-width:300px;
   }
 
-#removeDuplicates,#clearall{
+#clearall,#rebuildServerBookmarks{
 	d//isplay:none;
 }
+#removeDuplicates, #forceSync{
+  display:none;
+  }
 
 #daxmarksLink{
   text-decoration: none;
@@ -25,19 +28,26 @@ body{
 
 <h1>  
 		Admin Operation
-	</h1>
+	</h1> <span id="bookmarkCount"></span>
+  <br>
+
 
 <button id="update" title = "Get updates since your last update.">Quick Update</button>
-<button id="install" title = "Re-send all your bookmarks to server.">Re-install</button>
-<button id="updateall" title = "Re apply all operations from the beginning of time.">All Updates</button>
-<button id="clearall" title = "Clear internal data like if you accepted the opt-in">Clear settings</button> <!-- really messes with the database ClientID fields -->
+<button id="install" title = "Re-send all your bookmarks to server.  Do this first for any issues.">Re-install</button>
+<button id="updateall" title = "Re apply all operations from the beginning of time. Second choice.">All Updates</button>
+<button id="clearall" title = "Clear internal data like if you accepted the opt-in.  REQUIRES REINSTALL.">Clear settings</button> <!-- really messes with the database ClientID fields -->
 <button id="removeDuplicates" title = "Cleans up your bookmarks" >Remove Duplicates</button>
 <button id="rebuildBookmarks" title = "Deletes your bookmarks, rebuilds them based on operations submitted to server. (last resort)" >Rebuild bookmarks</button>
 <button id="rebuildServerBookmarks" title = "Deletes your server bookmarks, rebuilds them based on operations submitted to server. (last resort)" >Rebuild Server bookmarks</button>
 <button id="compareall" title = "test compares" >compareall</button>
-<button id="deletehistory" title = "Make sure your bookmarks are all up to date first" >Delete history</button>
-<button id="runtest" title = "runtest" >runtest</button>
+<button id="deletehistory" title = "Just sync everything first." >Delete history</button>
+<button id="runtest" title = "Do a random move/rename/delete/add, then compare all." >Random operation</button>
 <button id="printtree" title = "ctrl-alt-J to see console messages">print tree</button>
+<button id="processQueue" title = "Sometimes client operations weren't sent to server">Process Queue</button>
+<button id="test4" title = "test4">test4</button>
+<button id="forceSync" title = "sync with Bookmarks table">forceSync</button>
+<button id="deleteTables" title = "deletetables">Delete tables</button>
+<button id="cleanup" title = "clean up">Clean Up DB</button>
 
   <div  style="text-align: right;">
     <br>
@@ -48,9 +58,28 @@ body{
   </div>
 
 
-<h2><span id="status"> </span></h2>
+<h3><span id="status"> </span></h3>
+
+<div id="operationResults" style="display:none;">  <!-- start hidden until needed -->
+  <h3>Results</h3>
+  
+  
+  Added: <span id="added"> </span><br>
+  Deleted: <span id="deleted"> </span><br>
+  Moved: <span id="moved"> </span><br>
+  Renamed: <span id="renamed"> </span><br>
+  Existed: <span id="existed" title="No need to add something that already existed."> </span><br>
+  Skipped: <span id="skipped" title="A later operation overwrote this operation, so we skip it."> </span><br>
+  Fixed: <span id="fixed"> </span><br>
+  Failed: <span id="failed"> </span> <span id="failedOps"> </span><br>
+
+  
+
+
+</div>
 
 <script src="main.js"></script>
 
 
 </html>
+
